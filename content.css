@@ -1,0 +1,291 @@
+/* ——— content.css — trigger buttons + floating popups ——— */
+
+/* ——— trigger button container ——— */
+#axrg-trigger-wrap {
+  position: fixed;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  animation: axrg-fadeIn 0.15s ease forwards;
+}
+
+/* ——— trigger buttons ——— */
+.axrg-trigger-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  border: 1px solid #333333;
+  border-radius: 18px;
+  color: #6554a4;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.axrg-trigger-btn:hover {
+  border-color: #6554a4;
+  color: #a090d0;
+  background-color: #0a0a0a;
+}
+
+.axrg-trigger-btn:active {
+  background-color: #111111;
+}
+
+/* ——— overlay ——— */
+#axrg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483646;
+  background: transparent;
+}
+
+/* ——— popup container ——— */
+#axrg-popup {
+  position: fixed;
+  z-index: 2147483647;
+  width: 340px;
+  background-color: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 0 0 40px rgba(88, 49, 184, 0.5);
+  border: 2px solid #6554a4;
+  border-radius: 18px;
+  padding: 16px;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  opacity: 0;
+  animation: axrg-fadeIn 0.2s ease forwards;
+}
+
+/* ——— popup header ——— */
+#axrg-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+#axrg-popup-title {
+  font-size: 10px;
+  font-weight: 500;
+  color: #555555;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+}
+
+#axrg-popup-close {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #2a2a2a;
+  border-radius: 18px;
+  color: #444444;
+  font-size: 11px;
+  font-family: monospace;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+#axrg-popup-close:hover {
+  color: #999999;
+  border-color: #555555;
+}
+
+/* ——— original text translation ——— */
+#axrg-translation {
+  padding: 10px 12px;
+  font-size: 11px;
+  color: #555555;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  text-transform: lowercase;
+}
+
+/* ——— translate result (clickable) ——— */
+#axrg-translate-result {
+  padding: 14px 16px;
+  margin: 4px 0;
+  background-color: rgba(14, 14, 14, 0.7);
+  border: 1px solid #222222;
+  border-radius: 12px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 14px;
+  color: #bbbbbb;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+#axrg-translate-result:hover {
+  background-color: rgba(28, 28, 28, 0.8);
+  border-color: #3a3a3a;
+}
+
+/* ——— divider ——— */
+.axrg-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #6554a4;
+  margin: 8px 0 12px 0;
+}
+
+/* ——— reply option ——— */
+.axrg-reply-option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background-color: rgba(14, 14, 14, 0.7);
+  border: 1px solid #222222;
+  border-radius: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.axrg-reply-option:last-of-type {
+  margin-bottom: 0;
+}
+
+.axrg-reply-option:hover {
+  background-color: rgba(28, 28, 28, 0.8);
+  border-color: #3a3a3a;
+}
+
+.axrg-reply-option:active {
+  background-color: rgba(8, 8, 8, 0.9);
+}
+
+/* persona type badge */
+.axrg-reply-type {
+  display: block;
+  align-self: flex-end;
+  font-size: 9px;
+  font-style: italic;
+  color: #555555;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  margin-bottom: 2px;
+}
+
+/* english text */
+.axrg-reply-en {
+  display: block;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 14px;
+  color: #bbbbbb;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  text-transform: lowercase;
+}
+
+/* turkish translation */
+.axrg-reply-tr {
+  display: block;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #444444;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  text-transform: lowercase;
+}
+
+/* ——— copied feedback ——— */
+#axrg-copied-msg {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 10px;
+  color: #4a7a5a;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#axrg-copied-msg.visible {
+  opacity: 1;
+}
+
+/* ——— error state ——— */
+#axrg-error-msg {
+  padding: 10px 12px;
+  font-size: 11px;
+  color: #7a4a4a;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  text-align: center;
+}
+
+/* ——— loading state ——— */
+.axrg-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.axrg-loading-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #333333;
+  border-radius: 50%;
+  margin: 0 3px;
+  animation: axrg-pulse 1s ease-in-out infinite;
+}
+
+.axrg-loading-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.axrg-loading-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ——— animations ——— */
+@keyframes axrg-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes axrg-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

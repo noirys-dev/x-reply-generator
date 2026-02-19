@@ -1,0 +1,7 @@
+# .gitignore
+.env
+*.log
+build/
+.dart_tool/
+node_modules/
+.DS_Store
