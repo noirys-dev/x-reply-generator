@@ -1,30 +1,34 @@
-# project: aesthetic x reply generator (chrome extension)
+# aesthetic x reply generator
 
-## architecture & tech stack
-- manifest v3
-- vanilla javascript, html, css
-- google gemini api (free tier)
-- strict focus on performance, minimal dom manipulation.
+a minimalist, persona-driven chrome extension for x (twitter). 
+built for users who want to maintain a specific aesthetic without wasting time typing. powered by groq api.
 
-## core flow (selection-based)
-1. background script handles context menu (right-click on selected text).
-2. user selects text, clicks "generate reply".
-3. background script sends selected text to gemini api via chrome.storage stored api key.
-4. content script injects a minimal floating ui near the selection to display 3 generated options.
-5. clicking an option copies it to the clipboard and closes the floating ui.
+## what it does
+it intercepts selected text on x, translates context if necessary, and generates three distinct reply personas in strictly lowercase, emoji-free english. it also translates your own thoughts into the same aesthetic.
 
-## design & ui aesthetic (critical)
-- vibe: dark mode, minimalist tech.
-- colors: pure black (#000000), dark grays (#111111, #222222), muted silver.
-- typography: sans-serif, lowercase text only, small font sizes, high letter-spacing.
-- ui elements: sharp edges or very subtle rounding (2px), thin borders (1px solid #333), blurred backgrounds (backdrop-filter: blur).
-- no flashy animations. just simple, quick fade-ins.
+## features
+- **persona engine:** generates three types of replies simultaneously (supportive, technical, sarcastic).
+- **stealth operation:** relies on native browser selection. zero dom manipulation. safe from shadow bans.
+- **floating ui:** minimal dark mode interface. backdrop blur, pure black background, thin borders.
+- **bilingual context:** understands turkish context, translates to english, and provides turkish sub-labels for generated english replies.
+- **one-click copy:** clicks copy the english text directly to your clipboard.
 
-## ai prompt instructions
-when writing the fetch call to gemini api, use this exact system instruction:
-"act as a minimal tech girl with a goth/pinterest aesthetic. task: generate 3 short tweet replies based on the provided text. rules: strictly lowercase, no emojis, professional but sarcastic/cool tone, minimalist language. output format: strictly a json array of 3 strings."
+## stack
+- vanilla javascript
+- vanilla css
+- chrome extensions api (manifest v3)
+- groq api (llama-3.3-70b-versatile)
 
-## security & rules
-- never hardcode api keys. create an options page for the user to input the gemini api key.
-- use chrome.storage.local for storing the key.
-- do not use setinterval or auto-refresh mechanisms. user triggers everything manually to avoid bot detection and shadow bans.
+## setup
+1. clone this repository.
+2. get a free api key from groq console.
+3. open chrome and navigate to `chrome://extensions/`.
+4. enable "developer mode" in the top right corner.
+5. click "load unpacked" and select the cloned directory.
+6. click the extension icon in your toolbar, enter your groq api key, and save.
+
+## usage
+select any text on x.com. a minimal `✦` or `⟡` trigger will appear next to your cursor. click to generate. 
+
+## license
+mit
